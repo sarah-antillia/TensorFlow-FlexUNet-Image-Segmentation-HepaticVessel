@@ -245,8 +245,8 @@ Evaluation console output:<br>
 <br><br>
 
 <a href="./projects/TensorFlowFlexUNet/HepaticVessel/evaluation.csv">evaluation.csv</a><br>
-The loss (categorical_crossentropy) to this HepaticVessel/test was not low and dice_coef_multiclass 
-high as shown below.
+The loss (categorical_crossentropy) to this HepaticVessel/test was very low and dice_coef_multiclass 
+very high as shown below.
 <br>
 <pre>
 categorical_crossentropy,0.0057
