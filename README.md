@@ -43,11 +43,11 @@ The green region represents a vessel, and the red a tumor respectively.<br><br>
 <hr>
 <br>
 <h3>1. Dataset Citation</h3>
-The dataset used here has been taken from the following kaggle website :<br>
+The dataset used here has been taken from the following dataset:<br>
 <a href="https://drive.google.com/file/d/1qVrpV7vmhIsUxFiH189LmAn0ALbAPrgS/view?usp=drive_link">
 Task08_HepaticVessel.tar
 </a>
-on google drive <a href="https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2">
+on the google drive <a href="https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2">
 Medical Segmentation Decathlon (MSD)
 </a>
 <br>
