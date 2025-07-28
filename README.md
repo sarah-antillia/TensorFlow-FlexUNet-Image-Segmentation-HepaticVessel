@@ -189,7 +189,7 @@ rgb color map dict for HepaticVessel 1+2 classes.<br>
 [mask]
 mask_file_format = ".png"
 ; background   black  vessel:green, tumor:red
-rgb_map = {(0,0,0):0, (0,0,255):1, (255,0,0):2,}
+rgb_map = {(0,0,0):0, (0,255,0):1, (255,0,0):2,}
 </pre>
 
 <b>Epoch change inference callback</b><br>
