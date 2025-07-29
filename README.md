@@ -1,6 +1,7 @@
-<h2>TensorFlow-FlexUNet-Image-Segmentation-HepaticVessel (2025/07/29)</h2>
-
-This is the first preliminary experiment of Image Segmentation for HepaticVessel Multiclass (Vessel and Tumor) based on our TensorFlowFlexUNet (TensorFlow Flexible UNet Image Segmentation Model for Multiclass) and a 512x512 pixels 
+<h2>TensorFlow-FlexUNet-Image-Segmentation-HepaticVessel (Updated: 2025/07/30)</h2>
+<li>2025/07/30: Retrained Segmentation Model by using EarlyStoppingCallback.</li>
+<br>
+This is the first experiment of Image Segmentation for HepaticVessel Multiclass (Vessel and Tumor) based on our TensorFlowFlexUNet (TensorFlow Flexible UNet Image Segmentation Model for Multiclass) and a 512x512 pixels 
 <a href="https://drive.google.com/file/d/1r2f3wB13QY-1KMvkU-fZbYDFGKx_AHvc/view?usp=sharing">
 HepaticVessel-ImageMask-Dataset.zip</a>.
 which was derived by us from <br>
@@ -10,8 +11,6 @@ Task08_HepaticVessel.tar
 on google drive <a href="https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2">
 Medical Segmentation Decathlon (MSD)
 </a>
-
-
 <br>
 <br>
 <b>Acutual Image Segmentation for 512x512 HepaticVessel images</b><br>
@@ -66,7 +65,7 @@ mimic the accuracy required for clinical use. <br>
 To cite this data, please refer to 
 <a href="https://arxiv.org/abs/1902.09063">https://arxiv.org/abs/1902.09063
 </a>
-<br>
+<br><br>
 <h3>
 <a id="2">
 2 HepaticVessel ImageMask Dataset
@@ -112,6 +111,7 @@ As shown above, the number of images of train and valid datasets is large enough
 <br>
 <b>Train_masks_sample</b><br>
 <img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/train_masks_sample.png" width="1024" height="auto">
+<br>
 <br>
 <h3>
 3 Train TensorFlowFlexUNet Model
@@ -189,7 +189,7 @@ rgb color map dict for HepaticVessel 1+2 classes.<br>
 [mask]
 mask_file_format = ".png"
 ; background   black  vessel:green, tumor:red
-rgb_map = {(0,0,0):0, (0,255,0):1, (255,0,0):2,}
+rgb_map = {(0,0,0):0, (0,0,255):1, (255,0,0):2,}
 </pre>
 
 <b>Epoch change inference callback</b><br>
@@ -208,14 +208,14 @@ By using this callback, on every epoch_change, the inference procedure can be ca
 <b>Epoch_change_inference output at starting (epoch 1,2,3)</b><br>
 <img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/epoch_change_infer_at_start.png" width="1024" height="auto"><br>
 <br>
-<b>Epoch_change_inference output at middlepoint (epoch 7,8,9)</b><br>
+<b>Epoch_change_inference output at middlepoint (epoch 23,24,25)</b><br>
 <img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/epoch_change_infer_at_middlepoint.png" width="1024" height="auto"><br>
 <br>
-<b>Epoch_change_inference output at ending (epoch 16,17,18)</b><br>
+<b>Epoch_change_inference output at ending (epoch 50,51,52)</b><br>
 <img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/epoch_change_infer_at_end.png" width="1024" height="auto"><br>
 <br>
-In this experiment, the training process was terminated at epoch 18.<br><br>
-<img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/train_console_output_at_epoch18.png" width="920" height="auto"><br>
+In this experiment, the training process was stopped at epoch 52 by EarlyStopping callback..<br><br>
+<img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/train_console_output_at_epoch52.png" width="920" height="auto"><br>
 <br>
 
 <a href="./projects/TensorFlowFlexUNet/HepaticVessel/eval/train_metrics.csv">train_metrics.csv</a><br>
@@ -241,16 +241,16 @@ python ../../../src/TensorFlowFlexUNetEvaluator.py ./train_eval_infer_aug.config
 </pre>
 
 Evaluation console output:<br>
-<img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/evaluate_console_output_at_epoch18.png" width="920" height="auto">
+<img src="./projects/TensorFlowFlexUNet/HepaticVessel/asset/evaluate_console_output_at_epoch52.png" width="920" height="auto">
 <br><br>
 
 <a href="./projects/TensorFlowFlexUNet/HepaticVessel/evaluation.csv">evaluation.csv</a><br>
-The loss (categorical_crossentropy) to this HepaticVessel/test was very low and dice_coef_multiclass 
-very high as shown below.
+The loss (categorical_crossentropy) to this HepaticVessel/test was not low and dice_coef_multiclass 
+high as shown below.
 <br>
 <pre>
-categorical_crossentropy,0.0057
-dice_coef_multiclass,0.997
+categorical_crossentropy,0.0046
+dice_coef_multiclass,0.998
 </pre>
 <br>
 
